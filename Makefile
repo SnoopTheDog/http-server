@@ -1,5 +1,5 @@
 linux:
-	
+	clang src/main.c -o main -Iinclude -L/usr/lib/ -lmicrohttpd
 
 windows: 
-	gcc main.c -o main.exe -Iinclude -Llib -lmicrohttpd
+	gcc src/main.c -o main.exe -Iinclude -Llib -lmicrohttpd

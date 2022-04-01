@@ -16,6 +16,11 @@ int print_out_key (void *cls, enum MHD_ValueKind kind,
   return MHD_YES;
 }
 
+int earthqake_record (int time)
+{
+	return 0;
+}
+
 int answer_to_connection (void *cls, struct MHD_Connection *connection,
                           const char *url,
                           const char *method, const char *version,
@@ -23,6 +28,9 @@ int answer_to_connection (void *cls, struct MHD_Connection *connection,
                           size_t *upload_data_size, void **con_cls)
 {
 	printf ("\nNew %s request for %s using version %s\n", method, url, version);
+
+	if (strcmp(method, "/potresi/rekordi/tedenski"))
+		earthqake_record(240);
 
 	const char* page = "<html><body style='background-color=#121212;'>Hello</body></html>";
 
